@@ -20,7 +20,9 @@ The **RPlidar.h** library can be found here: [RPLidar Arduino Library](https://g
 
 Here’s the workflow for this project and the current status of each task:
 
-### - **Continuous Data Retrieval from LIDAR (Important)** – **DONE**
+### - **Continuous Data Retrieval from LIDAR (Important)** – **DONE** (click to play the video) 
+
+
 
 [![Proof_Lidar_Data_Stream](1.png)](https://drive.google.com/file/d/1rfpvJtDQD67CvJ5mutH_rplSHh9WAc60/view?usp=drive_link)
 
@@ -28,7 +30,8 @@ Here’s the workflow for this project and the current status of each task:
 
 ![Circuit](circuit.png)
 
-### - **LIDAR Hole Processor (Not so important)** – **DONE**
+### - **LIDAR Hole Processor (Not so important)** – **DONE** (click to play the video) 
+
 
 [![Proof_Hole_Processor](2.png)](https://drive.google.com/file/d/1ZKafViBrdYzuwkXnPgtSrBZSwxWRYnGK/view?usp=drive_link)
 
@@ -36,10 +39,12 @@ Here’s the workflow for this project and the current status of each task:
 
 [![Lidar_Output](4.png)](https://drive.google.com/file/d/1PlDPItqsNulzSENrVX-oHoexpWoK3kjX/view?usp=drive_link)
 
-### - **Edge Detection using LIDAR (Important)** – **DONE**
+### - **Edge Detection using LIDAR (Important)** – **DONE** (click to play the video) 
+
 
 [![Proof_Edge_Detection](5.png)](https://drive.google.com/file/d/1PsGvN44Rhcd295yuS7_6knRiBt5i1g9i/view?usp=drive_link)
-- **Calculating Distance to the Next Edge** – **REMAINING**
+- **Calculating Distance to the Next Edge** – **REMAINING** (click to play the video) 
+
 
 ## Next Steps
 
