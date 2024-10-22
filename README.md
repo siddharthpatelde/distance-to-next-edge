@@ -43,8 +43,12 @@ Here’s the workflow for this project and the current status of each task:
 
 
 [![Proof_Edge_Detection](5.png)](https://drive.google.com/file/d/1PsGvN44Rhcd295yuS7_6knRiBt5i1g9i/view?usp=drive_link)
-- **Calculating Distance to the Next Edge** – **REMAINING** (click to play the video) 
 
+### - **Calculating Distance to the Next Edge (Non-filtered)** – **DONE** (click to play the video)
+
+[![Proof 1](proof1.png)](https://drive.google.com/file/d/1WEArDvpSgvIyKT1jKW4AdApa847UnFev/view?usp=sharing)
+
+[![Proof 2](proof2.png)](https://drive.google.com/file/d/1mivxFB5GDWuHXXUXX1iQcaiiQBgAlYqu/view?usp=sharing)
 
 ## Next Steps
 
