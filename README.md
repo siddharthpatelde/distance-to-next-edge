@@ -22,33 +22,29 @@ Here’s the workflow for this project and the current status of each task:
 
 ### - **Continuous Data Retrieval from LIDAR (Important)** – **DONE** (click to play the video) 
 
-
-
-[![Proof_Lidar_Data_Stream](1.png)](https://drive.google.com/file/d/1rfpvJtDQD67CvJ5mutH_rplSHh9WAc60/view?usp=drive_link)
+[![Proof_Lidar_Data_Stream](image/1.png)](https://drive.google.com/file/d/1rfpvJtDQD67CvJ5mutH_rplSHh9WAc60/view?usp=drive_link)
 
 **Circuit Diagram:**
 
-![Circuit](circuit.png)
+![Circuit](image/circuit.png)
 
 ### - **LIDAR Hole Processor (Not so important)** – **DONE** (click to play the video) 
 
+[![Proof_Hole_Processor](image/2.png)](https://drive.google.com/file/d/1ZKafViBrdYzuwkXnPgtSrBZSwxWRYnGK/view?usp=drive_link)
 
-[![Proof_Hole_Processor](2.png)](https://drive.google.com/file/d/1ZKafViBrdYzuwkXnPgtSrBZSwxWRYnGK/view?usp=drive_link)
+[![Sorted_Lidar_Array](image/3.png)](https://drive.google.com/file/d/1vgB4sXewlVeRfvCux_HYK_wVaKtTB3Rp/view?usp=drive_link)
 
-[![Sorted_Lidar_Array](3.png)](https://drive.google.com/file/d/1vgB4sXewlVeRfvCux_HYK_wVaKtTB3Rp/view?usp=drive_link)
-
-[![Lidar_Output](4.png)](https://drive.google.com/file/d/1PlDPItqsNulzSENrVX-oHoexpWoK3kjX/view?usp=drive_link)
+[![Lidar_Output](image/4.png)](https://drive.google.com/file/d/1PlDPItqsNulzSENrVX-oHoexpWoK3kjX/view?usp=drive_link)
 
 ### - **Edge Detection using LIDAR (Important)** – **DONE** (click to play the video) 
 
-
-[![Proof_Edge_Detection](5.png)](https://drive.google.com/file/d/1PsGvN44Rhcd295yuS7_6knRiBt5i1g9i/view?usp=drive_link)
+[![Proof_Edge_Detection](image/5.png)](https://drive.google.com/file/d/1PsGvN44Rhcd295yuS7_6knRiBt5i1g9i/view?usp=drive_link)
 
 ### - **Calculating Distance to the Next Edge (Non-filtered)** – **DONE** (click to play the video)
 
-[![Proof 1](proof1.png)](https://drive.google.com/file/d/1WEArDvpSgvIyKT1jKW4AdApa847UnFev/view?usp=sharing)
+[![Proof 1](image/proof1.png)](https://drive.google.com/file/d/1WEArDvpSgvIyKT1jKW4AdApa847UnFev/view?usp=sharing)
 
-[![Proof 2](proof2.png)](https://drive.google.com/file/d/1mivxFB5GDWuHXXUXX1iQcaiiQBgAlYqu/view?usp=sharing)
+[![Proof 2](image/proof2.png)](https://drive.google.com/file/d/1mivxFB5GDWuHXXUXX1iQcaiiQBgAlYqu/view?usp=sharing)
 
 ## Next Steps
 
