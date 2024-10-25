@@ -53,7 +53,7 @@ void loop() {
       */
 
     if (distance > 0) {  // Ensure distance is valid
-      if (angle > 270 && angle < 330) {  // 30 below from horizontal level
+      if (angle > 270 && angle < 350) {  // 30 below from horizontal level
 
       //this is for debug purpose 
       //printData(angle, distance, points_count);

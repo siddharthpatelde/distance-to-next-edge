@@ -18,7 +18,7 @@ This version implements the edge detection logic first, allowing us to later cal
 #define tolerance 2 //define the tolerance factor for edge detection logic
 
 int points_count = 0; //Counter to track number of points in the current scan
-float alfas_when_edge[2]; // Define an array to hold 10 float alfa values when edge is detected values
+float alfas_when_edge[2]; //Define an array to hold 10 float alfa values when edge is detected values
 
 
 
