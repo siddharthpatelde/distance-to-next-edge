@@ -20,7 +20,6 @@ This version implements the edge detection logic first, allowing us to later cal
 int points_count = 0; //Counter to track number of points in the current scan
 float alfas_when_edge[5]; // Define an array to hold 10 float alfa values when edge is detected values
 
-static bool new_scan_started;
 
 RPLidar lidar;
 
@@ -40,8 +39,7 @@ void loop() {
 
     if (lidar.getCurrentPoint().startBit) {
       Serial.println(points_count);
-      start_new_scan();
-      //Serial.println("New scan started...");
+      Serial.println("New scan started...");
       points_count = 0;
     }    
 
@@ -52,10 +50,8 @@ void loop() {
       distance_non_filted = get_next_holes_from_laserscan_non_filtered(angle, distance,lidar_height);
 
       if(distance_non_filted != 0.0){
-        float distance_filted = filter_minimum_per_scan(distance_non_filted);
-      // Serial.print("edge id detected at ");
-      // Serial.println(distance_non_filted);
-      Serial.println(distance_filted);
+        Serial.print("edge id detected at ");
+        Serial.println(distance_non_filted);
       }
 
       points_count++;
@@ -121,31 +117,4 @@ float findMin(float arr[], int size) {
     }
   }
   return minValue;
-}
-
-
-// Function to filter and retrieve the minimum value per scan
-float filter_minimum_per_scan(float current_distance) {
-  static bool new_scan_started = true;  // flag to track the start of a new scan
-  static float min_value = 0.0;  // stores the minimum value for each scan
-  
-  if (new_scan_started) {
-    // New scan started, initialize the minimum value with the first distance
-    min_value = current_distance;
-    new_scan_started = false;
-  }
-
-  // If a new edge is detected that is smaller, update the minimum value
-  if (current_distance < min_value) {
-    min_value = current_distance;
-  }
-
-  return min_value;  // Return the minimum value for the current scan
-}
-
-
-// Reset the scan when a new scan is detected
-void start_new_scan() {
-  Serial.println("New scan started...");
-  new_scan_started = true;  // Set flag to true to initialize the minimum for the next scan
 }
