@@ -1,17 +1,23 @@
 /*
-Date: 20.10.2024
+Date: 25.10.2024
 Author: Siddharth A. Patel
 GitHub: https://github.com/siddharthpatelde?tab=overview&from=2024-10-01&to=2024-10-17
 
-In this version, I edited the code from "Distance from Next Edge v1" to adjust the quadrant value and array size. In the next version, we will apply a low-pass filter for better distance accuracy.
-(View here: https://github.com/Solar-Clean/robot_arduino/blob/main/rplidar-with-pico/lidar_continue_data_stream_v2/lidar_continue_data_stream_v2.ino)
-This version implements the edge detection logic first, allowing us to later calculate the distance from the edge.
+This is the final attempt to filter data using the Filters library.
+
+Added function: JSON serialization string for utilizing data
+
+The Filters library used can be found here:
+https://github.com/edargelies/arduino_eq/tree/master/libraries/Filters
+
+The RPlidar library used can be found here:
+https://github.com/robopeak/rplidar_arduino/tree/master
 */
 
-
-
-
+#include <Filters.h>
+#include <ArduinoJson.h>
 #include <RPLidar.h>
+
 #define RPLIDAR_MOTOR 3 //The PWM pin for control the speed of RPLIDAR's motor (MOTOCTRL).
 
 #define lidar_height 25  //lidar position 25 cm from the ground
@@ -20,12 +26,13 @@ This version implements the edge detection logic first, allowing us to later cal
 int points_count = 0; //Counter to track number of points in the current scan
 float alfas_when_edge[5]; // Define an array to hold 10 float alfa values when edge is detected values
 
-static bool new_scan_started;
+FilterOnePole lowpassFilter(LOWPASS, 0.1); // Smoothing filter
+float smoothedValue = 0;
 
 RPLidar lidar;
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(115200);  // Initialize the USB serial port for JASON string
   Serial1.begin(115200);  // For RPLidar
   lidar.begin(Serial1);
   pinMode(RPLIDAR_MOTOR, OUTPUT);  // set pin modes
@@ -39,8 +46,7 @@ void loop() {
     float distance_non_filted = 0.0;
 
     if (lidar.getCurrentPoint().startBit) {
-      Serial.println(points_count);
-      start_new_scan();
+      //
       //Serial.println("New scan started...");
       points_count = 0;
     }    
@@ -50,14 +56,25 @@ void loop() {
 
 
       distance_non_filted = get_next_holes_from_laserscan_non_filtered(angle, distance,lidar_height);
+      if (distance_non_filted != 0.0) {
+        // Print both non-filtered and filtered values
+        smoothedValue = lowpassFilter.input(distance_non_filted);
+        
+        // Create a JSON document to serialize
+        StaticJsonDocument<200> doc;
+        doc["lidar_height"] = lidar_height;
+        doc["Distance"] = smoothedValue;
 
-      if(distance_non_filted != 0.0){
-        float distance_filted = filter_minimum_per_scan(distance_non_filted);
-      // Serial.print("edge id detected at ");
-      // Serial.println(distance_non_filted);
-      Serial.println(distance_filted);
+        // Serialize JSON to Serial
+        serializeJson(doc, Serial);
+        Serial.println(); // Print newline for readability
+
+        // // Output both values in a format suitable for the Serial Plotter
+        // //Serial.print(distance_non_filted);    // Print the non-filtered value
+        // Serial.print(lidar_height);
+        // Serial.print("\t");                   // Tab separator
+        // Serial.println(smoothedValue);        // Print the filtered (smoothed) value
       }
-
       points_count++;
       }
     }
@@ -95,9 +112,6 @@ float get_next_holes_from_laserscan_non_filtered(float angle_lidar, float distan
     }
     float min_alfa_Value = findMin(alfas_when_edge, 5);
     distance_to_next_edge = tan(min_alfa_Value)*scan_height;
-
-    //Serial.print("edge id detected at ");
-    //Serial.println(distance_to_next_edge);
   }
 
  return distance_to_next_edge;
@@ -121,31 +135,4 @@ float findMin(float arr[], int size) {
     }
   }
   return minValue;
-}
-
-
-// Function to filter and retrieve the minimum value per scan
-float filter_minimum_per_scan(float current_distance) {
-  static bool new_scan_started = true;  // flag to track the start of a new scan
-  static float min_value = 0.0;  // stores the minimum value for each scan
-  
-  if (new_scan_started) {
-    // New scan started, initialize the minimum value with the first distance
-    min_value = current_distance;
-    new_scan_started = false;
-  }
-
-  // If a new edge is detected that is smaller, update the minimum value
-  if (current_distance < min_value) {
-    min_value = current_distance;
-  }
-
-  return min_value;  // Return the minimum value for the current scan
-}
-
-
-// Reset the scan when a new scan is detected
-void start_new_scan() {
-  Serial.println("New scan started...");
-  new_scan_started = true;  // Set flag to true to initialize the minimum for the next scan
 }
