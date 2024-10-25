@@ -12,9 +12,11 @@ For now, this project emphasizes:
 - Working with the **RPlidar.h** library to process data from the 2D LIDAR sensor
 - Using **Raspberry Pi Pico** as the hardware platform for the implementation
 
-### Library Source
+### Library Sources
 
 The **RPlidar.h** library can be found here: [RPLidar Arduino Library](https://github.com/robopeak/rplidar_arduino/tree/master)
+
+The **Filters** library for data filtering can be found here: [Arduino Filters Library](https://github.com/edargelies/arduino_eq/tree/master/libraries/Filters)
 
 ## Project Workflow
 
@@ -46,11 +48,9 @@ Here’s the workflow for this project and the current status of each task:
 
 [![Proof 2](image/proof2.png)](https://drive.google.com/file/d/1mivxFB5GDWuHXXUXX1iQcaiiQBgAlYqu/view?usp=sharing)
 
-## Next Steps
+### - **Calculating Distance to the Next Edge (filtered)** – **DONE** (click to play the video)
 
-I am currently working on the logic for calculating the distance to the next edge detected by the LIDAR sensor. Once this step is completed, the project will provide a robust solution for edge detection and distance calculation using a 2D LIDAR sensor and a Raspberry Pi Pico.
-
-Feel free to explore the code and contribute if you'd like!
+[![Proof_Filtered_Distance](image/filtered_proof.png)](https://drive.google.com/file/d/1sBQNz1nN8M1QA3F-Lf8BnC2cx3LwU1n8/view?usp=sharing)
 
 ## Author
 
