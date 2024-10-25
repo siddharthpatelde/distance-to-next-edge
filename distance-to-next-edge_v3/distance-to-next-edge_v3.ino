@@ -91,9 +91,6 @@ float get_next_holes_from_laserscan_non_filtered(float angle_lidar, float distan
     }
     float min_alfa_Value = findMin(alfas_when_edge, 5);
     distance_to_next_edge = tan(min_alfa_Value)*scan_height;
-
-    //Serial.print("edge id detected at ");
-    //Serial.println(distance_to_next_edge);
   }
 
  return distance_to_next_edge;
